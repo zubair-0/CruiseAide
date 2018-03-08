@@ -83,7 +83,7 @@
         >
           <v-flex xs12 sm4 class="my-3">
             <div class="text-xs-center">
-              <h2 class="headline">The best way to start developing</h2>
+              <h2 class="headline">Best Platform For An Adventurer</h2>
               <span class="subheading">
                 Cras facilisis mi vitae nunc 
               </span>
@@ -1618,11 +1618,11 @@ export default {
       clipped: true,
       drawer: true,
       fixed: false,
-      homePage: false,
+      homePage: true,
       attractionsPage: false,
       restaurantsPage: false,
       accomodationPage: false,
-      travelPage: true,
+      travelPage: false,
       miniVariant: true,
       right: true,
       rightDrawer: false,
