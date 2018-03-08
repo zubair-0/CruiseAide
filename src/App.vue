@@ -1227,7 +1227,7 @@
                   <v-text-field
                     name="input"
                     label="Price"
-                    id="price"
+                    id="ticketPrice"
                     mask="#####"
                   ></v-text-field>
                 </v-flex>
@@ -1762,7 +1762,7 @@ export default {
 
       if (this.accomodationPage) {
         this.filteredAccomodations = this.accomodations.filter(post => {
-          if (this.accomodationFilters.price > post.price) {
+          if (this.accomodationFilters.price >= post.price) {
             if (this.accomodationFilters.types.includes(post.type) || this.accomodationFilters.types.length === 0) {
               if (this.accomodationFilters.features.some(r => post.features.includes(r)) || this.accomodationFilters.features.length === 0) {
                 if (post.title.toLowerCase().includes(this.search.toLowerCase())) {
@@ -1786,7 +1786,7 @@ export default {
 
       if (this.travelPage) {
         this.filteredTravels = this.travels.filter(post => {
-          if (this.travelFilters.price > post.price) {
+          if (this.travelFilters.price >= post.price) {
             if (this.travelFilters.classes.includes(post.class) || this.travelFilters.classes.length === 0) {
               if (this.travelFilters.airlines.includes(post.title) || this.travelFilters.airlines.length === 0) {
                 if (post.srcCity.toLowerCase().includes(this.search.toLowerCase())) {
