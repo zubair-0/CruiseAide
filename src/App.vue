@@ -1421,6 +1421,18 @@ export default {
           city: 'Tokyo',
           country: 'Japan',
           image: require('@/assets/attractions/shibu.jpg')
+        },
+        {
+          title: 'Shibuya',
+          city: 'Tokyo',
+          country: 'Japan',
+          image: require('@/assets/attractions/shibu.jpg')
+        },
+        {
+          title: 'Shibuya',
+          city: 'Tokyo',
+          country: 'Japan',
+          image: require('@/assets/attractions/shibu.jpg')
         }
       ],
       restaurants: [
@@ -1447,6 +1459,30 @@ export default {
           features: [],
           cuisine: 'Italian',
           image: require('@/assets/restaurants/pjs.jpg')
+        },
+        {
+          title: 'Okonomiyaki Kiji',
+          city: 'Osaka',
+          country: 'Japan',
+          features: [],
+          cuisine: 'Japanese',
+          image: require('@/assets/restaurants/oko.jpg')
+        },
+        {
+          title: 'Okonomiyaki Kiji',
+          city: 'Osaka',
+          country: 'Japan',
+          features: [],
+          cuisine: 'Japanese',
+          image: require('@/assets/restaurants/oko.jpg')
+        },
+        {
+          title: 'Okonomiyaki Kiji',
+          city: 'Osaka',
+          country: 'Japan',
+          features: [],
+          cuisine: 'Japanese',
+          image: require('@/assets/restaurants/oko.jpg')
         },
         {
           title: 'Okonomiyaki Kiji',
@@ -1816,3 +1852,4 @@ export default {
   name: 'App'
 };
 </script>
+
