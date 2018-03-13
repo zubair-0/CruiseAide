@@ -166,10 +166,10 @@
         </v-layout>
       </section>
       <section>
-        <v-parallax :src="require('@/assets/2.jpg')" height="550">
+        <v-parallax :src="require('@/assets/main.jpg')" height="550">
           <v-layout column align-center justify-center>
-            <div class="headline white--text mb-3 text-xs-center">Going On A Tour Has Never Been Easier.</div>
-            <em>With CruiseAide, You Don't Need To Worry</em>
+            <div class="white--text display-1 mb-3 text-xs-center">Going On A Tour Has Never Been Easier.</div>
+            <h2>With CruiseAide, You Don't Need To Worry</h2>
             <v-btn
               class="blue lighten-2 mt-5"
               dark
@@ -265,13 +265,7 @@
         </v-carousel>
       </section>
       <section>
-        <v-layout
-          column
-          wrap
-          class="my-5"
-          align-center
-        >
-          <v-flex xs12 sm4 class="my-3">
+        <v-flex xs6 offset-xs4 sm4 class="my-5">
             <div class="text-xs-center">
               <h2 class="headline">Popular Attractions Around The World</h2>
               <span class="subheading">
@@ -314,13 +308,12 @@
               </v-layout>
             </v-container>
           </v-flex>
-        </v-layout>
       </section>
       <section>
-        <v-parallax :src="require('@/assets/2.jpg')" height="550">
+        <v-parallax :src="require('@/assets/flamingo.jpg')" height="550">
           <v-layout column align-center justify-center>
-            <div class="headline white--text mb-3 text-xs-center">Sightseeing Has Never Been More Fun</div>
-            <em>Don't Miss Out And Start Exploring Today</em>
+            <div class="headline white--text display-1 mb-3 text-xs-center">Sightseeing Has Never Been More Fun</div>
+            <h2>Don't Miss Out And Start Exploring Today</h2>
             <v-btn
               class="blue lighten-2 mt-5"
               dark
@@ -353,13 +346,7 @@
         </v-carousel>
       </section>
       <section>
-        <v-layout
-          column
-          wrap
-          class="my-5"
-          align-center
-        >
-          <v-flex xs12 sm4 class="my-3">
+          <v-flex xs6 offset-xs4 sm4 class="my-3">
             <div class="text-xs-center">
               <h2 class="headline">Popular Restaurants Around The World</h2>
               <span class="subheading">
@@ -467,13 +454,12 @@
               </v-layout>
             </v-container>
           </v-flex>
-        </v-layout>
       </section>
       <section>
-        <v-parallax :src="require('@/assets/2.jpg')" height="550">
+        <v-parallax :src="require('@/assets/mainpage.jpg')" height="550">
           <v-layout column align-center justify-center>
-            <div class="headline white--text mb-3 text-xs-center">Guaranteed The Best Quality Food</div>
-            <em>Start Your Food Hunt Today</em>
+            <div class="headline white--text display-1 mb-3 text-xs-center">Guaranteed The Best Quality Food</div>
+            <h2>Start Your Food Hunt Today</h2>
             <v-btn
               class="blue lighten-2 mt-5"
               dark
@@ -624,9 +610,6 @@
                         <span class="grey--text">{{hotel.type}}: ${{hotel.price}}</span>
                         <star-rating :star-size="20" :rating="hotel.rating" :read-only="true" :increment="0.01"></star-rating>
                       </div>
-                      <div class="text-xs-left">
-                        
-                      </div>
                     </v-card-title>
                     <v-card-actions>
                       <v-btn flat>Share</v-btn>
@@ -641,10 +624,10 @@
         </v-layout>
       </section>
       <section>
-        <v-parallax :src="require('@/assets/2.jpg')" height="550">
+        <v-parallax :src="require('@/assets/center.jpg')" height="550">
           <v-layout column align-center justify-center>
-            <div class="headline white--text mb-3 text-xs-center">Luxurious Living In Affordable Prices</div>
-            <em>Get Your Dream Shack Today</em>
+            <div class="headline white--text display-1 mb-3 text-xs-center">Luxurious Living In Affordable Prices</div>
+            <h2>Get Your Dream Shack Today</h2>
             <v-btn
               class="blue lighten-2 mt-5"
               dark
@@ -834,10 +817,10 @@
         </v-layout>
       </section>
       <section>
-        <v-parallax :src="require('@/assets/2.jpg')" height="550">
+        <v-parallax :src="require('@/assets/china.jpg')" height="550">
           <v-layout column align-center justify-center>
-            <div class="headline white--text mb-3 text-xs-center">Best Travelling Services</div>
-            <em>Get The Smooth Rides In Affordable Prices</em>
+            <div class="headline white--text display-1 mb-3 text-xs-center">Best Travelling Services</div>
+            <h2>Get The Smooth Rides In Affordable Prices</h2>
             <v-btn
               class="blue lighten-2 mt-5"
               dark
@@ -1342,10 +1325,10 @@ export default {
           image: require('@/assets/attractions/tower.jpg')
         },
         {
-          title: 'Shibuya',
-          city: 'Tokyo',
-          country: 'Japan',
-          image: require('@/assets/attractions/shibu.jpg')
+          title: 'Palm Jumeirah',
+          city: 'Dubai',
+          country: 'UAE',
+          image: require('@/assets/attractions/palm.jpg')
         },
         {
           title: 'Shibuya',
@@ -1354,10 +1337,46 @@ export default {
           image: require('@/assets/attractions/shibu.jpg')
         },
         {
-          title: 'Shibuya',
-          city: 'Tokyo',
+          title: 'Niagara Falls',
+          city: 'Toronto',
+          country: 'Canada',
+          image: require('@/assets/attractions/niagara.jpg')
+        },
+        {
+          title: 'Mount Fuji',
+          city: 'Honshu Island',
           country: 'Japan',
-          image: require('@/assets/attractions/shibu.jpg')
+          image: require('@/assets/attractions/fuji.jpg')
+        },
+        {
+          title: 'Atlantis',
+          city: 'Dubai',
+          country: 'UAE',
+          image: require('@/assets/attractions/atlantis.jpg')
+        },
+        {
+          title: 'Arc de Triomphe',
+          city: 'Paris',
+          country: 'France',
+          image: require('@/assets/attractions/arc.jpg')
+        },
+        {
+          title: 'The Atsuta Shrine',
+          city: 'Nagoya',
+          country: 'Japan',
+          image: require('@/assets/attractions/nagoya.jpg')
+        },
+        {
+          title: 'Le Sacre Coeur',
+          city: 'Paris',
+          country: 'France',
+          image: require('@/assets/attractions/paris.jpg')
+        },
+        {
+          title: 'Marché Bonsecours',
+          city: 'Montreal',
+          country: 'Canada',
+          image: require('@/assets/attractions/montreal.jpg')
         }
       ],
       restaurants: [
