@@ -53,21 +53,22 @@
     </v-toolbar>
     <v-content v-if="homePage"> <!-- Insert Main Content here -->
       <section>
-        <v-parallax :src="require('@/assets/center.jpg')" height="550">
+        <v-parallax :src="require('@/assets/swiss.jpg')" height="550">
           <v-layout
             column
             align-center
             justify-center
             class="white--text"
           >
-            <img :src="require('@/assets/logo.png')" alt="Vuetify.js">
+            <img :src="require('@/assets/logo.png')" alt="CruiseAide">
             <h1 class="white--text mb-2 display-3 text-xs-center" style="font-size: 50px;">CruiseAide</h1>
-            <div class="subheading mb-3 text-xs-center">Know Your Journey</div>
+            <div class="subheading mb-3 text-xs-center">We've Got You Covered</div>
             <v-btn
               class="blue lighten-2 mt-5"
               dark
               large
               href="#"
+              @click="attractionsClicked"
             >
               Get Started
             </v-btn>
@@ -85,7 +86,7 @@
             <div class="text-xs-center">
               <h2 class="headline">Best Platform For An Adventurer</h2>
               <span class="subheading">
-                Cras facilisis mi vitae nunc 
+                Check Out Our Services
               </span>
             </div>
           </v-flex>
@@ -145,8 +146,8 @@
       <section>
         <v-parallax :src="require('@/assets/2.jpg')" height="550">
           <v-layout column align-center justify-center>
-            <div class="headline white--text mb-3 text-xs-center">Web development has never been easier</div>
-            <em>Kick-start your application today</em>
+            <div class="headline white--text mb-3 text-xs-center">Going On A Tour Has Never Been Easier.</div>
+            <em>With CruiseAide, You Don't Need To Worry</em>
             <v-btn
               class="blue lighten-2 mt-5"
               dark
@@ -164,49 +165,58 @@
             <v-flex xs12 sm4>
               <v-card class="elevation-0 transparent">
                 <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">Company info</div>
+                  <div class="headline">About CruiseAide</div>
                 </v-card-title>
-                <v-card-text>
-                  Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                  Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
+                <v-card-text class="justify-space-between">
+                  CruiseAide, one of the smartest travel recommendation site, enables adventure seekers
+                  and tourists to enjoy each and every bit of all the journies. CruiseAide recommends the
+                  best attraction sites and also presents the travellers with the best deals of accomodation,
+                  restaurants and travel services, thus allowing them to decide by getting a clear idea
+                  and a better cost estimation. CruiseAide allows users to filter the results according
+                  to their needs so they can choose what's best for them. Our team is working hard each day
+                  to provide our customers with the best services possible. We aspire to become number one
+                  in the world with the help of our customers who review the services provided on our site.
+                </v-card-text>
+                <v-card-text class="layout justify-center">
+                  CruiseAide: Know, Pre-Book, Relax.
                 </v-card-text>
               </v-card>
             </v-flex>
             <v-flex xs12 sm4 offset-sm1>
               <v-card class="elevation-0 transparent">
                 <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">Contact us</div>
+                  <div class="headline">Contact Us</div>
                 </v-card-title>
                 <v-card-text>
-                  Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
+                  Feel free to get in touch in case of any queries.<br/>We are always happy to help.
                 </v-card-text>
-                <v-list class="transparent">
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon class="blue--text text--lighten-2">phone</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                      <v-list-tile-title>777-867-5309</v-list-tile-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon class="blue--text text--lighten-2">place</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                      <v-list-tile-title>Chicago, US</v-list-tile-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon class="blue--text text--lighten-2">email</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                      <v-list-tile-title>john@vuetifyjs.com</v-list-tile-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                </v-list>
+                <v-form v-model="valid" ref="form" lazy-validation>
+                  <v-text-field
+                    label="Name"
+                    v-model="name"
+                    :rules="nameRules"
+                    :counter="10"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    label="Email"
+                    v-model="email"
+                    :rules="emailRules"
+                    required
+                  ></v-text-field>
+                  <v-text-field
+                    name="query"
+                    label="Your Query"
+                    multi-line
+                  ></v-text-field>
+                  <v-btn
+                    color="primary"
+                    @click="submit"
+                    :disabled="!valid"
+                  >
+                    CONTACT
+                  </v-btn>
+                </v-form>
               </v-card>
             </v-flex>
           </v-layout>
@@ -216,26 +226,21 @@
 
     <v-content v-if="attractionsPage"> <!-- Content Of Attractions Page Start From Here -->
       <section>
-        <v-parallax :src="require('@/assets/main.jpg')" height="550">
-          <v-layout
+        <v-carousel hide-controls style="height:550">
+          <v-carousel-item v-for="(pic,i) in attractionPics" :src="pic.src" :key="i">
+            <v-layout
             column
             align-center
             justify-center
             class="white--text"
+            style="margin-top: 80px;"
           >
-            <img :src="require('@/assets/logo.png')" alt="Vuetify.js">
-            <h1 class="white--text mb-2 display-1 text-xs-center">Attractions</h1>
+            <h1 class="white--text mb-2 display-2 text-xs-center">Attractions</h1>
             <div class="subheading mb-3 text-xs-center">Explore The Beauty Around The World</div>
-            <v-btn
-              class="blue lighten-2 mt-5"
-              dark
-              large
-              href="#"
-            >
-              Explore
-            </v-btn>
+            <h2 class="white--text my-3 display-1 text-xs-center">{{pic.text}}</h2>
           </v-layout>
-        </v-parallax>
+          </v-carousel-item>
+        </v-carousel>
       </section>
       <section>
         <v-layout
@@ -363,26 +368,21 @@
 
     <v-content v-if="restaurantsPage"> <!-- Content Of Restaurants Page Start From Here -->
       <section>
-        <v-parallax :src="require('@/assets/main.jpg')" height="550">
-          <v-layout
+        <v-carousel hide-controls style="height:550">
+          <v-carousel-item v-for="(pic,i) in restaurantPics" :src="pic.src" :key="i">
+            <v-layout
             column
             align-center
             justify-center
             class="white--text"
+            style="margin-top: 80px;"
           >
-            <img :src="require('@/assets/logo.png')" alt="Vuetify.js">
-            <h1 class="white--text mb-2 display-1 text-xs-center">Restaurants</h1>
-            <div class="subheading mb-3 text-xs-center">Eat All Kinds of Foods Around The World</div>
-            <v-btn
-              class="blue lighten-2 mt-5"
-              dark
-              large
-              href="#"
-            >
-              Explore
-            </v-btn>
+            <h1 class="white--text mb-2 display-2 text-xs-center">Restaurants</h1>
+            <div class="subheading mb-3 text-xs-center">Eat The Best Food Around The World</div>
+            <h2 class="white--text my-3 display-1 text-xs-center">{{pic.text}}</h2>
           </v-layout>
-        </v-parallax>
+          </v-carousel-item>
+        </v-carousel>
       </section>
       <section>
         <v-layout
@@ -550,26 +550,21 @@
 
     <v-content v-if="accomodationPage"> <!-- Content Of Accomodation Page Start From Here -->
       <section>
-        <v-parallax :src="require('@/assets/main.jpg')" height="550">
-          <v-layout
+        <v-carousel hide-controls style="height:550">
+          <v-carousel-item v-for="(pic,i) in accomodationPics" :src="pic.src" :key="i">
+            <v-layout
             column
             align-center
             justify-center
             class="white--text"
+            style="margin-top: 80px;"
           >
-            <img :src="require('@/assets/logo.png')" alt="Vuetify.js">
-            <h1 class="white--text mb-2 display-1 text-xs-center">Accomodation</h1>
-            <div class="subheading mb-3 text-xs-center">Get The Best Living Standards wherever You Go</div>
-            <v-btn
-              class="blue lighten-2 mt-5"
-              dark
-              large
-              href="#"
-            >
-              Explore
-            </v-btn>
+            <h1 class="white--text mb-2 display-2 text-xs-center">Accommodations</h1>
+            <div class="subheading mb-3 text-xs-center">Get The Best Living Standards Wherever You Go</div>
+            <h2 class="white--text my-3 display-1 text-xs-center">{{pic.text}}</h2>
           </v-layout>
-        </v-parallax>
+          </v-carousel-item>
+        </v-carousel>
       </section>
       <section>
         <v-layout
@@ -767,26 +762,19 @@
 
     <v-content v-if="travelPage"> <!-- Content Of Travel Page Start From Here -->
       <section>
-        <v-parallax :src="require('@/assets/main.jpg')" height="550">
-          <v-layout
+        <v-carousel hide-controls>
+          <v-carousel-item v-for="(pic,i) in travelPics" :src="pic.src" :key="i">
+            <v-layout
             column
             align-center
             justify-center
             class="white--text"
+            style="margin-top: 80px;"
           >
-            <img :src="require('@/assets/logo.png')" alt="Vuetify.js">
-            <h1 class="white--text mb-2 display-1 text-xs-center">Travel</h1>
-            <div class="subheading mb-3 text-xs-center">Spread Your Wings And Fly With The Best</div>
-            <v-btn
-              class="blue lighten-2 mt-5"
-              dark
-              large
-              href="#"
-            >
-              Explore
-            </v-btn>
+            <h1 class="white--text mb-2 display-2 text-xs-center">{{pic.text}}</h1>
           </v-layout>
-        </v-parallax>
+          </v-carousel-item>
+        </v-carousel>
       </section>
       <section>
         <v-layout
@@ -1330,6 +1318,78 @@
 export default {
   data () {
     return {
+      attractionPics: [
+        {
+          src: require('@/assets/turkey.jpg'),
+          text: "Turkey"
+        },
+        {
+          src: require('@/assets/italy.jpg'),
+          text: "Italy"
+        },
+        {
+          src: require('@/assets/greece.jpg'),
+          text: "Greece"
+        },
+        {
+          src: require('@/assets/flamingo.jpg'),
+          text: "Spain"
+        }
+      ],
+      restaurantPics: [
+        {
+          src: require('@/assets/restaurants/rest1.jpg'),
+          text: "Turkey"
+        },
+        {
+          src: require('@/assets/restaurants/rest2.jpg'),
+          text: "Italy"
+        },
+        {
+          src: require('@/assets/restaurants/rest3.jpg'),
+          text: "Greece"
+        },
+        {
+          src: require('@/assets/restaurants/rest4.jpg'),
+          text: "Spain"
+        }
+      ],
+      accomodationPics: [
+        {
+          src: require('@/assets/accomodation/acomo1.jpg'),
+          text: "Iceland"
+        },
+        {
+          src: require('@/assets/accomodation/acomo2.jpg'),
+          text: "Scotland"
+        },
+        {
+          src: require('@/assets/accomodation/acomo3.jpg'),
+          text: "Peru"
+        },
+        {
+          src: require('@/assets/accomodation/acomo4.jpg'),
+          text: "Malives Islands"
+        }
+      ],
+      travelPics: [
+        {
+          src: require('@/assets/airlines/travel4.jpg'),
+          text: "Travel By Cruise"
+        },
+        {
+          src: require('@/assets/airlines/travel2.jpg'),
+          text: "Travel By Air"
+        },
+        {
+          src: require('@/assets/airlines/travel3.jpg'),
+          text: "Travel By Vehicle"
+        },
+        {
+          src: require('@/assets/airlines/travel1.jpg'),
+          text: "Travel By Train"
+        }
+      ],
       items: [
         {
           icon: 'home',
@@ -1651,30 +1711,47 @@ export default {
       cuisine: ['Italian', 'Chinese', 'English'],
       accomodationTypes: ['Hotel', 'Rental House'],
       flightClasses: ['First', 'Business', 'Economy'],
-      clipped: true,
-      drawer: true,
-      fixed: false,
+      
       homePage: true,
       attractionsPage: false,
       restaurantsPage: false,
       accomodationPage: false,
       travelPage: false,
-      miniVariant: true,
-      right: true,
-      rightDrawer: false,
-      title: 'CruiseAide',
+      
       addAttractionDialog: false,
       addRestaurantDialog: false,
       addAccomodationDialog: false,
       addTravelDialog: false,
       loginDialog: false,
       signupDialog: false,
+      
       showFilters: false,
       filteredTravels: [],
       filteredAccomodations: [],
       filteredRestaurants: [],
       filteredAttractions: [],
-      search: ''
+      search: '',
+
+      clipped: true,
+      drawer: true,
+      fixed: false,
+      
+      miniVariant: true,
+      right: true,
+      rightDrawer: false,
+      title: 'CruiseAide',
+      
+      valid: true,
+      name: '',
+      nameRules: [
+        v => !!v || 'Name is required',
+        v => (v && v.length <= 20) || 'Name must be less than 20 characters'
+      ],
+      email: '',
+      emailRules: [
+        v => !!v || 'Email is required',
+        v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'Email must be valid'
+      ],
     };
   },
   methods: {
