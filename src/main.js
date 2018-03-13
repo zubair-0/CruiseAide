@@ -7,6 +7,7 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import Vuetify from 'vuetify';
+import StarRating from 'vue-star-rating'
 import 'vuetify/dist/vuetify.min.css';
 
 Vue.use(Vuetify, { theme: {
@@ -20,6 +21,8 @@ Vue.use(Vuetify, { theme: {
 }});
 
 Vue.config.productionTip = false;
+
+Vue.component('star-rating', StarRating);
 
 /* eslint-disable no-new */
 new Vue({

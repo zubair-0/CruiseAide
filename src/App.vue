@@ -68,7 +68,6 @@
               dark
               large
               href="#"
-              @click="attractionsClicked"
             >
               Get Started
             </v-btn>
@@ -93,48 +92,71 @@
           <v-flex xs12>
             <v-container grid-list-xl>
               <v-layout row wrap align-center>
-                <v-flex xs12 md4>
+                <v-flex xs12 md3>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-xs-center">
-                      <v-icon x-large class="blue--text text--lighten-2">color_lens</v-icon>
+                      <v-btn fab dark color="indigo" @click="attractionsClicked">
+                        <v-icon dark>place</v-icon>
+                      </v-btn>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline text-xs-center">Material Design</div>
+                      <div class="headline text-xs-center">Famous Attractions</div>
                     </v-card-title>
                     <v-card-text>
-                      Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                      Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
+                      We provide you the chance to see the famous places around the world.
+                      We believe that every human should have the chance to travel the world.
+                      That's why we provide the best services in the least possible rates so our every customer can enjoy and relax.
                     </v-card-text>
                   </v-card>
                 </v-flex>
-                <v-flex xs12 md4>
+                <v-flex xs12 md3>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-xs-center">
-                      <v-icon x-large class="blue--text text--lighten-2">flash_on</v-icon>
+                      <v-btn fab dark color="indigo" @click="restaurantsClicked">
+                        <v-icon dark>restaurant_menu</v-icon>
+                      </v-btn>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline">Fast development</div>
+                      <div class="headline">Delicious Foods</div>
                     </v-card-title>
                     <v-card-text>
-                      Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                      Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
+                      We believe in trying different foods of different cultures around the world. So, travel
+                      with us to taste the most delicious foods among different restaurants around the world.
+                      We will make the reservations, you sit back and relax.
                     </v-card-text>
                   </v-card>
                 </v-flex>
-                <v-flex xs12 md4>
+                <v-flex xs12 md3>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-xs-center">
-                      <v-icon x-large class="blue--text text--lighten-2">build</v-icon>
+                      <v-btn fab dark color="indigo" @click="accomodationClicked">
+                        <v-icon dark>hotel</v-icon>
+                      </v-btn>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline text-xs-center">Completely Open Sourced</div>
+                      <div class="headline text-xs-center">Affordable Reservations</div>
                     </v-card-title>
                     <v-card-text>
-                      Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                      Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
+                      During travelling, one of the major hurdles is finding a suitable place in an affordable price.
+                      Well, we are concerned about each and every one of our customers. So, we provide you with
+                      affordable places where you can feel like home.
+                    </v-card-text>
+                  </v-card>
+                </v-flex>
+                <v-flex xs12 md3>
+                  <v-card class="elevation-0 transparent">
+                    <v-card-text class="text-xs-center">
+                      <v-btn fab dark color="indigo" @click="travelClicked">
+                        <v-icon dark>local_airport</v-icon>
+                      </v-btn>
+                    </v-card-text>
+                    <v-card-title primary-title class="layout justify-center">
+                      <div class="headline text-xs-center">Luxurious Travel</div>
+                    </v-card-title>
+                    <v-card-text>
+                      One must not be tired after travelling. That's why we provide you with only the best travelling services.
+                      We provide all kinds of packages ranging from royal to affordable but smooth rides are
+                      guaranteed. Travel with us and you shall see.
                     </v-card-text>
                   </v-card>
                 </v-flex>
@@ -153,6 +175,7 @@
               dark
               large
               href="#"
+              @click="homeClicked"
             >
               Get Started
             </v-btn>
@@ -225,20 +248,19 @@
     </v-content>
 
     <v-content v-if="attractionsPage"> <!-- Content Of Attractions Page Start From Here -->
-      <section>
-        <v-carousel hide-controls style="height:550">
+      <section id="inspire">
+        <v-carousel hide-controls style="height:535px;">
           <v-carousel-item v-for="(pic,i) in attractionPics" :src="pic.src" :key="i">
             <v-layout
-            column
-            align-center
-            justify-center
-            class="white--text"
-            style="margin-top: 80px;"
-          >
-            <h1 class="white--text mb-2 display-2 text-xs-center">Attractions</h1>
-            <div class="subheading mb-3 text-xs-center">Explore The Beauty Around The World</div>
-            <h2 class="white--text my-3 display-1 text-xs-center">{{pic.text}}</h2>
-          </v-layout>
+              column
+              align-center
+              justify-center
+              class="white--text"
+              style="margin-top: 80px;"
+            >
+              <h1 class="white--text mb-2 display-3 text-xs-center" style="font-size: 50px;">{{pic.title}}</h1>
+              <h2 class="white--text my-3 text-xs-center">{{pic.text}}</h2>
+            </v-layout>
           </v-carousel-item>
         </v-carousel>
       </section>
@@ -297,72 +319,19 @@
       <section>
         <v-parallax :src="require('@/assets/2.jpg')" height="550">
           <v-layout column align-center justify-center>
-            <div class="headline white--text mb-3 text-xs-center">Sightseeing has never been more fun</div>
+            <div class="headline white--text mb-3 text-xs-center">Sightseeing Has Never Been More Fun</div>
             <em>Don't Miss Out And Start Exploring Today</em>
             <v-btn
               class="blue lighten-2 mt-5"
               dark
               large
               href="#"
+              @click="homeClicked"
             >
               Get Started
             </v-btn>
           </v-layout>
         </v-parallax>
-      </section>
-      <section>
-        <v-container grid-list-xl>
-          <v-layout row wrap justify-center class="my-5">
-            <v-flex xs12 sm4>
-              <v-card class="elevation-0 transparent">
-                <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">Company info</div>
-                </v-card-title>
-                <v-card-text>
-                  Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                  Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
-                </v-card-text>
-              </v-card>
-            </v-flex>
-            <v-flex xs12 sm4 offset-sm1>
-              <v-card class="elevation-0 transparent">
-                <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">Contact us</div>
-                </v-card-title>
-                <v-card-text>
-                  Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                </v-card-text>
-                <v-list class="transparent">
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon class="blue--text text--lighten-2">phone</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                      <v-list-tile-title>777-867-5309</v-list-tile-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon class="blue--text text--lighten-2">place</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                      <v-list-tile-title>Chicago, US</v-list-tile-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon class="blue--text text--lighten-2">email</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                      <v-list-tile-title>john@vuetifyjs.com</v-list-tile-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                </v-list>
-              </v-card>
-            </v-flex>
-          </v-layout>
-        </v-container>
       </section>
     </v-content>
 
@@ -377,9 +346,8 @@
             class="white--text"
             style="margin-top: 80px;"
           >
-            <h1 class="white--text mb-2 display-2 text-xs-center">Restaurants</h1>
-            <div class="subheading mb-3 text-xs-center">Eat The Best Food Around The World</div>
-            <h2 class="white--text my-3 display-1 text-xs-center">{{pic.text}}</h2>
+            <h1 class="white--text mb-2 display-3 text-xs-center" style="font-size: 50px;">{{pic.title}}</h1>
+            <h2 class="white--text my-3 text-xs-center">{{pic.text}}</h2>
           </v-layout>
           </v-carousel-item>
         </v-carousel>
@@ -445,6 +413,30 @@
                           @change="filterResults"
                           value="Delivery"
                         ></v-checkbox>
+                        <v-checkbox
+                          label="Buffet"
+                          v-model="restaurantFilters.features"
+                          @change="filterResults"
+                          value="Buffet"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Takeout"
+                          v-model="restaurantFilters.features"
+                          @change="filterResults"
+                          value="Takeout"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Bulk Order"
+                          v-model="restaurantFilters.features"
+                          @change="filterResults"
+                          value="Bulk Order"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Event Organizers"
+                          v-model="restaurantFilters.features"
+                          @change="filterResults"
+                          value="Event Organizers"
+                        ></v-checkbox>
                       </v-container>
                     </v-expansion-panel-content>
                   </v-expansion-panel>
@@ -462,6 +454,7 @@
                         <span class="grey--text">{{restaurant.city}}, {{restaurant.country}}</span>
                         <br>
                         <span class="grey--text">Cuisine: {{restaurant.cuisine}}</span>
+                        <star-rating :star-size="20" :rating="restaurant.rating" :read-only="true" :increment="0.01"></star-rating>
                       </div>
                     </v-card-title>
                     <v-card-actions>
@@ -479,72 +472,19 @@
       <section>
         <v-parallax :src="require('@/assets/2.jpg')" height="550">
           <v-layout column align-center justify-center>
-            <div class="headline white--text mb-3 text-xs-center">Sightseeing has never been more fun</div>
-            <em>Don't Miss Out And Start Exploring Today</em>
+            <div class="headline white--text mb-3 text-xs-center">Guaranteed The Best Quality Food</div>
+            <em>Start Your Food Hunt Today</em>
             <v-btn
               class="blue lighten-2 mt-5"
               dark
               large
               href="#"
+              @click="homeClicked"
             >
               Get Started
             </v-btn>
           </v-layout>
         </v-parallax>
-      </section>
-      <section>
-        <v-container grid-list-xl>
-          <v-layout row wrap justify-center class="my-5">
-            <v-flex xs12 sm4>
-              <v-card class="elevation-0 transparent">
-                <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">Company info</div>
-                </v-card-title>
-                <v-card-text>
-                  Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                  Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
-                </v-card-text>
-              </v-card>
-            </v-flex>
-            <v-flex xs12 sm4 offset-sm1>
-              <v-card class="elevation-0 transparent">
-                <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">Contact us</div>
-                </v-card-title>
-                <v-card-text>
-                  Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                </v-card-text>
-                <v-list class="transparent">
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon class="blue--text text--lighten-2">phone</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                      <v-list-tile-title>777-867-5309</v-list-tile-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon class="blue--text text--lighten-2">place</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                      <v-list-tile-title>Chicago, US</v-list-tile-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon class="blue--text text--lighten-2">email</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                      <v-list-tile-title>john@vuetifyjs.com</v-list-tile-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                </v-list>
-              </v-card>
-            </v-flex>
-          </v-layout>
-        </v-container>
       </section>
     </v-content>
 
@@ -559,9 +499,8 @@
             class="white--text"
             style="margin-top: 80px;"
           >
-            <h1 class="white--text mb-2 display-2 text-xs-center">Accommodations</h1>
-            <div class="subheading mb-3 text-xs-center">Get The Best Living Standards Wherever You Go</div>
-            <h2 class="white--text my-3 display-1 text-xs-center">{{pic.text}}</h2>
+            <h1 class="white--text mb-2 display-3 text-xs-center" style="font-size: 50px;">{{pic.title}}</h1>
+            <h2 class="white--text my-3 text-xs-center">{{pic.text}}</h2>
           </v-layout>
           </v-carousel-item>
         </v-carousel>
@@ -599,7 +538,7 @@
                 <v-flex xs4 offset-xs2>
                   <v-card>
                     <v-card-actions>
-                      <v-slider @mouseup="filterResults" :max="20000" v-model="accomodationFilters.price" thumb-label step="500" ticks></v-slider>
+                      <v-slider @mouseup="filterResults" :max="5000" v-model="accomodationFilters.price" thumb-label step="500" ticks></v-slider>
                     </v-card-actions>
                   </v-card>
                 </v-flex>
@@ -652,7 +591,19 @@
                           label="Swimming Pool"
                           v-model="accomodationFilters.features"
                           @change="filterResults"
-                          value="SwimmingPool"
+                          value="Swimming Pool"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Penthouse"
+                          v-model="accomodationFilters.features"
+                          @change="filterResults"
+                          value="Penthouse"
+                        ></v-checkbox>
+                        <v-checkbox
+                          label="Golf Course"
+                          v-model="accomodationFilters.features"
+                          @change="filterResults"
+                          value="Golf Course"
                         ></v-checkbox>
                       </v-container>
                     </v-expansion-panel-content>
@@ -670,7 +621,8 @@
                         <div class="headline">{{hotel.title}}</div>
                         <span class="grey--text">{{hotel.city}}, {{hotel.country}}</span>
                         <br>
-                        <span class="grey--text">{{hotel.type}}: {{hotel.price}}</span>
+                        <span class="grey--text">{{hotel.type}}: ${{hotel.price}}</span>
+                        <star-rating :star-size="20" :rating="hotel.rating" :read-only="true" :increment="0.01"></star-rating>
                       </div>
                       <div class="text-xs-left">
                         
@@ -691,72 +643,19 @@
       <section>
         <v-parallax :src="require('@/assets/2.jpg')" height="550">
           <v-layout column align-center justify-center>
-            <div class="headline white--text mb-3 text-xs-center">Sightseeing has never been more fun</div>
-            <em>Don't Miss Out And Start Exploring Today</em>
+            <div class="headline white--text mb-3 text-xs-center">Luxurious Living In Affordable Prices</div>
+            <em>Get Your Dream Shack Today</em>
             <v-btn
               class="blue lighten-2 mt-5"
               dark
               large
               href="#"
+              @click="homeClicked"
             >
               Get Started
             </v-btn>
           </v-layout>
         </v-parallax>
-      </section>
-      <section>
-        <v-container grid-list-xl>
-          <v-layout row wrap justify-center class="my-5">
-            <v-flex xs12 sm4>
-              <v-card class="elevation-0 transparent">
-                <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">Company info</div>
-                </v-card-title>
-                <v-card-text>
-                  Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                  Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
-                </v-card-text>
-              </v-card>
-            </v-flex>
-            <v-flex xs12 sm4 offset-sm1>
-              <v-card class="elevation-0 transparent">
-                <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">Contact us</div>
-                </v-card-title>
-                <v-card-text>
-                  Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                </v-card-text>
-                <v-list class="transparent">
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon class="blue--text text--lighten-2">phone</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                      <v-list-tile-title>777-867-5309</v-list-tile-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon class="blue--text text--lighten-2">place</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                      <v-list-tile-title>Chicago, US</v-list-tile-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon class="blue--text text--lighten-2">email</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                      <v-list-tile-title>john@vuetifyjs.com</v-list-tile-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                </v-list>
-              </v-card>
-            </v-flex>
-          </v-layout>
-        </v-container>
       </section>
     </v-content>
 
@@ -771,7 +670,8 @@
             class="white--text"
             style="margin-top: 80px;"
           >
-            <h1 class="white--text mb-2 display-2 text-xs-center">{{pic.text}}</h1>
+            <h1 class="white--text mb-2 display-3 text-xs-center" style="font-size: 50px;">{{pic.title}}</h1>
+            <h2 class="white--text my-3 text-xs-center">{{pic.text}}</h2>
           </v-layout>
           </v-carousel-item>
         </v-carousel>
@@ -810,7 +710,7 @@
                 <v-flex xs4 offset-xs2 v-model="showFilters">
                   <v-card>
                     <v-card-actions>
-                      <v-slider @mouseup="filterResults" :max="20000" v-model="travelFilters.price" thumb-label step="500" ticks></v-slider>
+                      <v-slider @mouseup="filterResults" :max="5000" v-model="travelFilters.price" thumb-label step="500" ticks></v-slider>
                     </v-card-actions>
                   </v-card>
                 </v-flex>
@@ -936,72 +836,19 @@
       <section>
         <v-parallax :src="require('@/assets/2.jpg')" height="550">
           <v-layout column align-center justify-center>
-            <div class="headline white--text mb-3 text-xs-center">Sightseeing has never been more fun</div>
-            <em>Don't Miss Out And Start Exploring Today</em>
+            <div class="headline white--text mb-3 text-xs-center">Best Travelling Services</div>
+            <em>Get The Smooth Rides In Affordable Prices</em>
             <v-btn
               class="blue lighten-2 mt-5"
               dark
               large
               href="#"
+              @click="homeClicked"
             >
               Get Started
             </v-btn>
           </v-layout>
         </v-parallax>
-      </section>
-      <section>
-        <v-container grid-list-xl>
-          <v-layout row wrap justify-center class="my-5">
-            <v-flex xs12 sm4>
-              <v-card class="elevation-0 transparent">
-                <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">Company info</div>
-                </v-card-title>
-                <v-card-text>
-                  Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                  Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
-                </v-card-text>
-              </v-card>
-            </v-flex>
-            <v-flex xs12 sm4 offset-sm1>
-              <v-card class="elevation-0 transparent">
-                <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">Contact us</div>
-                </v-card-title>
-                <v-card-text>
-                  Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                </v-card-text>
-                <v-list class="transparent">
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon class="blue--text text--lighten-2">phone</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                      <v-list-tile-title>777-867-5309</v-list-tile-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon class="blue--text text--lighten-2">place</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                      <v-list-tile-title>Chicago, US</v-list-tile-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon class="blue--text text--lighten-2">email</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                      <v-list-tile-title>john@vuetifyjs.com</v-list-tile-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                </v-list>
-              </v-card>
-            </v-flex>
-          </v-layout>
-        </v-container>
       </section>
     </v-content>
 
@@ -1072,6 +919,7 @@
                   ></v-select>
                 </v-flex>
               </v-layout>
+              <star-rating :star-size="20" :increment="0.01"></star-rating>
             </v-container>
             <small>*indicates required field</small>
           </v-card-text>
@@ -1152,13 +1000,14 @@
                   </v-expansion-panel>
                 </v-flex>
               </v-layout>
+              <star-rating :star-size="20" :increment="0.01"></star-rating>
             </v-container>
             <small>*indicates required field</small>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="blue darken-1" flat @click.native="addAccomodationDialog = false">Close</v-btn>
-            <v-btn color="blue darken-1" flat @click.native="addAccomodationDialog = false">Login</v-btn>
+            <v-btn color="blue darken-1" flat @click.native="addAccomodationDialog = false">Add</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -1226,7 +1075,7 @@
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="blue darken-1" flat @click.native="addTravelDialog = false">Close</v-btn>
-            <v-btn color="blue darken-1" flat @click.native="addTravelDialog = false">Login</v-btn>
+            <v-btn color="blue darken-1" flat @click.native="addTravelDialog = false">Add</v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -1320,74 +1169,90 @@ export default {
     return {
       attractionPics: [
         {
-          src: require('@/assets/turkey.jpg'),
-          text: "Turkey"
+          src: require('@/assets/attractions/uae.jpg'),
+          title: "Dubai",
+          text: "Visit The Tallest Building In The World"
         },
         {
-          src: require('@/assets/italy.jpg'),
-          text: "Italy"
+          src: require('@/assets/attractions/turkey.jpg'),
+          title: "Turkey",
+          text: "Check Out The Heritage Of The Ottoman Empire"
         },
         {
-          src: require('@/assets/greece.jpg'),
-          text: "Greece"
+          src: require('@/assets/attractions/italy.jpg'),
+          title: "Italy",
+          text: "See The Architectural Beauty Of The Romans"
         },
         {
-          src: require('@/assets/flamingo.jpg'),
-          text: "Spain"
+          src: require('@/assets/attractions/greece.jpg'),
+          title: "Greece",
+          text: "We Provide You With The Great Views"
         }
       ],
       restaurantPics: [
         {
           src: require('@/assets/restaurants/rest1.jpg'),
-          text: "Turkey"
+          title: "Indoor",
+          text: "We Recommend The Best Indoor Restaurants"
         },
         {
           src: require('@/assets/restaurants/rest2.jpg'),
-          text: "Italy"
+          title: "Outdoor",
+          text: "In Mood For Outdoor Sitting? We Got You Covered"
         },
         {
           src: require('@/assets/restaurants/rest3.jpg'),
-          text: "Greece"
+          title: "Cheaper",
+          text: "Running Low On Budget? We Got Just The Places For You"
         },
         {
           src: require('@/assets/restaurants/rest4.jpg'),
-          text: "Spain"
+          title: "Royalty",
+          text: "Experience The Most Luxurious Restaurants Around The World"
         }
       ],
       accomodationPics: [
         {
           src: require('@/assets/accomodation/acomo1.jpg'),
-          text: "Iceland"
+          title: "Wanna See Snow?",
+          text: "Stay In Cold Areas Of The World, But In Warm Places"
         },
         {
           src: require('@/assets/accomodation/acomo2.jpg'),
-          text: "Scotland"
+          title: "Luxurious Living",
+          text: "We Make The Most Luxurious Hotels Affordable Just For You"
         },
         {
           src: require('@/assets/accomodation/acomo3.jpg'),
-          text: "Peru"
+          title: "Great Views",
+          text: "We Recommend The Hotels With The Most Amazing Views"
         },
         {
           src: require('@/assets/accomodation/acomo4.jpg'),
-          text: "Malives Islands"
+          title: "Islands",
+          text: "Experience The Amazing Life On An Island"
         }
       ],
       travelPics: [
         {
           src: require('@/assets/airlines/travel4.jpg'),
-          text: "Travel By Cruise"
+          title: "Travel By Cruise",
+          text: "What Else Is CruiseAide For?"
         },
         {
           src: require('@/assets/airlines/travel2.jpg'),
-          text: "Travel By Air"
+          title: "Travel By Air",
+          text: "We Got The Best Airline Ticket Prices"
         },
         {
           src: require('@/assets/airlines/travel3.jpg'),
-          text: "Travel By Vehicle"
+          title: "Travel By Vehicle",
+          text: "Want To Travel By Road? We Got Rentals For You"
         },
         {
           src: require('@/assets/airlines/travel1.jpg'),
-          text: "Travel By Train"
+          title: "Travel By Train",
+          text: "PreBook And Get The Best Deals on Train Tickets"
         }
       ],
       items: [
@@ -1500,57 +1365,64 @@ export default {
           title: 'Burj Khalifa',
           city: 'Dubai',
           country: 'UAE',
-          features: [],
-          cuisine: 'Arabic',
-          image: require('@/assets/restaurants/bkrestaurant.jpg')
+          features: ['Buffet', 'Event Organizers', 'Takeout', 'Event Organizers'],
+          cuisine: ['Arabic', 'English', 'Japanese'],
+          image: require('@/assets/restaurants/bkrestaurant.jpg'),
+          rating: 4.8
         },
         {
           title: 'Salt N Pepper',
           city: 'London',
           country: 'UK',
-          features: [],
-          cuisine: 'English',
-          image: require('@/assets/restaurants/snp.jpg')
+          features: ['Buffet', 'Takeout', 'Event Organizers'],
+          cuisine: ['Pakistani', 'Chinese', 'Italian'],
+          image: require('@/assets/restaurants/snp.jpg'),
+          rating: 4.2
         },
         {
           title: 'Papa John\'s',
           city: 'New York',
           country: 'USA',
-          features: [],
-          cuisine: 'Italian',
-          image: require('@/assets/restaurants/pjs.jpg')
+          features: ['Delivery', 'Takeout', 'Bulk Order'],
+          cuisine: ['Italian', 'English'],
+          image: require('@/assets/restaurants/pjs.jpg'),
+          rating: 4.5
         },
         {
           title: 'Okonomiyaki Kiji',
           city: 'Osaka',
           country: 'Japan',
-          features: [],
-          cuisine: 'Japanese',
-          image: require('@/assets/restaurants/oko.jpg')
+          features: ['Delivery', 'Takeout'],
+          cuisine: ['Japanese', 'Chinese'],
+          image: require('@/assets/restaurants/oko.jpg'),
+          rating: 5
         },
         {
-          title: 'Okonomiyaki Kiji',
-          city: 'Osaka',
-          country: 'Japan',
-          features: [],
-          cuisine: 'Japanese',
-          image: require('@/assets/restaurants/oko.jpg')
+          title: 'Biryani House',
+          city: 'Karachi',
+          country: 'Pakistan',
+          features: ['Delivery', 'Takeout', 'Bulk Order'],
+          cuisine: ['Pakistani', 'Chinese'],
+          image: require('@/assets/restaurants/biryani.jpg'),
+          rating: 3.6
         },
         {
-          title: 'Okonomiyaki Kiji',
-          city: 'Osaka',
-          country: 'Japan',
-          features: [],
-          cuisine: 'Japanese',
-          image: require('@/assets/restaurants/oko.jpg')
+          title: 'Prego',
+          city: 'Kuala Lumpur',
+          country: 'Malaysia',
+          features: ['Event Organizers'],
+          cuisine: ['Arabic', 'English', 'Japanese'],
+          image: require('@/assets/restaurants/kuala.jpg'),
+          rating: 4.7
         },
         {
-          title: 'Okonomiyaki Kiji',
-          city: 'Osaka',
-          country: 'Japan',
-          features: [],
-          cuisine: 'Japanese',
-          image: require('@/assets/restaurants/oko.jpg')
+          title: 'Ziafat',
+          city: 'Lahore',
+          country: 'Pakistan',
+          features: ['Buffet'],
+          cuisine: ['Pakistani', 'Chinese', 'Arabic'],
+          image: require('@/assets/restaurants/ziafat.jpg'),
+          rating: 3.8
         }
       ],
       accomodations: [
@@ -1558,37 +1430,41 @@ export default {
           title: 'Emirates Palace',
           city: 'Abu Dhabi',
           country: 'UAE',
-          features: [],
+          features: ['Gym', 'Spa', 'Swimming Pool', 'Penthouse', 'Golf Course'],
           price: 1500,
           type: 'Hotel',
-          image: require('@/assets/accomodation/ephotel.jpg')
+          image: require('@/assets/accomodation/ephotel.jpg'),
+          rating: 5
         },
         {
           title: 'Burj Khalifa',
           city: 'Dubai',
           country: 'UAE',
-          features: [],
+          features: ['Gym', 'Spa', 'Swimming Pool', 'Penthouse'],
           price: 2000,
           type: 'Hotel',
-          image: require('@/assets/accomodation/bkhotel.jpg')
+          image: require('@/assets/accomodation/bkhotel.jpg'),
+          rating: 4.5
         },
         {
           title: 'The Plaza',
           city: 'New York',
           country: 'USA',
-          features: [],
+          features: ['Gym', 'Swimming Pool', 'Penthouse'],
           price: 1200,
           type: 'Hotel',
-          image: require('@/assets/accomodation/tphotel.jpg')
+          image: require('@/assets/accomodation/tphotel.jpg'),
+          rating: 4.2
         },
         {
           title: 'The Westin Excelsior',
           city: 'Rome',
           country: 'Italy',
-          features: [],
+          features: ['Spa', 'Swimming Pool', 'Golf Course'],
           price: 950,
           type: 'Hotel',
-          image: require('@/assets/accomodation/twehotel.jpg')
+          image: require('@/assets/accomodation/twehotel.jpg'),
+          rating: 4.7
         },
         {
           title: '25 Westwoord Drive',
@@ -1597,16 +1473,18 @@ export default {
           features: [],
           price: 500,
           type: 'RentalHome',
-          image: require('@/assets/accomodation/wdroom.jpg')
+          image: require('@/assets/accomodation/wdroom.jpg'),
+          rating: 3.8
         },
         {
           title: 'The Boulders',
           city: 'Arizona',
           country: 'USA',
-          features: [],
+          features: ['Gym', 'Swimming Pool', 'Golf Course'],
           price: 600,
           type: 'Hotel',
-          image: require('@/assets/accomodation/tbhotel.jpg')
+          image: require('@/assets/accomodation/tbhotel.jpg'),
+          rating: 3.9
         }
       ],
       travels: [
@@ -1699,12 +1577,12 @@ export default {
         features: []
       },
       accomodationFilters: {
-        price: 20000,
+        price: 5000,
         types: [],
         features: []
       },
       travelFilters: {
-        price: 20000,
+        price: 5000,
         classes: [],
         airlines: []
       },
@@ -1751,7 +1629,7 @@ export default {
       emailRules: [
         v => !!v || 'Email is required',
         v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'Email must be valid'
-      ],
+      ]
     };
   },
   methods: {
@@ -1853,7 +1731,7 @@ export default {
 
       if (this.restaurantsPage) {
         this.filteredRestaurants = this.restaurants.filter(post => {
-          if (this.restaurantFilters.cuisines.includes(post.cuisine) || this.restaurantFilters.cuisines.length === 0) {
+          if (this.restaurantFilters.cuisines.some(r => post.cuisine.includes(r)) || this.restaurantFilters.cuisines.length === 0) {
             if (this.restaurantFilters.features.some(r => post.features.includes(r)) || this.restaurantFilters.features.length === 0) {
               if (post.title.toLowerCase().includes(this.search.toLowerCase())) {
                 return true;
@@ -1929,4 +1807,3 @@ export default {
   name: 'App'
 };
 </script>
-
