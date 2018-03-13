@@ -1731,16 +1731,16 @@ export default {
     },
     filterResults: function () {
       if (this.attractionsPage) {
-        this.filteredAttractions = this.attractions.filter(post => {
-          if (post.title.toLowerCase().includes(this.search.toLowerCase())) {
+        this.filteredAttractions = this.attractions.filter(resultant => {
+          if (resultant.title.toLowerCase().includes(this.search.toLowerCase())) {
             return true;
           }
 
-          if (post.city.toLowerCase().includes(this.search.toLowerCase())) {
+          if (resultant.city.toLowerCase().includes(this.search.toLowerCase())) {
             return true;
           }
 
-          if (post.country.toLowerCase().includes(this.search.toLowerCase())) {
+          if (resultant.country.toLowerCase().includes(this.search.toLowerCase())) {
             return true;
           }
 
@@ -1749,18 +1749,18 @@ export default {
       }
 
       if (this.restaurantsPage) {
-        this.filteredRestaurants = this.restaurants.filter(post => {
-          if (this.restaurantFilters.cuisines.some(r => post.cuisine.includes(r)) || this.restaurantFilters.cuisines.length === 0) {
-            if (this.restaurantFilters.features.some(r => post.features.includes(r)) || this.restaurantFilters.features.length === 0) {
-              if (post.title.toLowerCase().includes(this.search.toLowerCase())) {
+        this.filteredRestaurants = this.restaurants.filter(resultant => {
+          if (this.restaurantFilters.cuisines.some(resultArray => resultant.cuisine.includes(resultArray)) || this.restaurantFilters.cuisines.length === 0) {
+            if (this.restaurantFilters.features.some(resultArray => resultant.features.includes(resultArray)) || this.restaurantFilters.features.length === 0) {
+              if (resultant.title.toLowerCase().includes(this.search.toLowerCase())) {
                 return true;
               }
 
-              if (post.city.toLowerCase().includes(this.search.toLowerCase())) {
+              if (resultant.city.toLowerCase().includes(this.search.toLowerCase())) {
                 return true;
               }
 
-              if (post.country.toLowerCase().includes(this.search.toLowerCase())) {
+              if (resultant.country.toLowerCase().includes(this.search.toLowerCase())) {
                 return true;
               }
             }
@@ -1771,19 +1771,19 @@ export default {
       }
 
       if (this.accomodationPage) {
-        this.filteredAccomodations = this.accomodations.filter(post => {
-          if (this.accomodationFilters.price >= post.price) {
-            if (this.accomodationFilters.types.includes(post.type) || this.accomodationFilters.types.length === 0) {
-              if (this.accomodationFilters.features.some(r => post.features.includes(r)) || this.accomodationFilters.features.length === 0) {
-                if (post.title.toLowerCase().includes(this.search.toLowerCase())) {
+        this.filteredAccomodations = this.accomodations.filter(resultant => {
+          if (this.accomodationFilters.price >= resultant.price) {
+            if (this.accomodationFilters.types.includes(resultant.type) || this.accomodationFilters.types.length === 0) {
+              if (this.accomodationFilters.features.some(resultArray => resultant.features.includes(resultArray)) || this.accomodationFilters.features.length === 0) {
+                if (resultant.title.toLowerCase().includes(this.search.toLowerCase())) {
                   return true;
                 }
 
-                if (post.city.toLowerCase().includes(this.search.toLowerCase())) {
+                if (resultant.city.toLowerCase().includes(this.search.toLowerCase())) {
                   return true;
                 }
 
-                if (post.country.toLowerCase().includes(this.search.toLowerCase())) {
+                if (resultant.country.toLowerCase().includes(this.search.toLowerCase())) {
                   return true;
                 }
               }
@@ -1795,23 +1795,23 @@ export default {
       }
 
       if (this.travelPage) {
-        this.filteredTravels = this.travels.filter(post => {
-          if (this.travelFilters.price >= post.price) {
-            if (this.travelFilters.classes.includes(post.class) || this.travelFilters.classes.length === 0) {
-              if (this.travelFilters.airlines.includes(post.title) || this.travelFilters.airlines.length === 0) {
-                if (post.srcCity.toLowerCase().includes(this.search.toLowerCase())) {
+        this.filteredTravels = this.travels.filter(resultant => {
+          if (this.travelFilters.price >= resultant.price) {
+            if (this.travelFilters.classes.includes(resultant.class) || this.travelFilters.classes.length === 0) {
+              if (this.travelFilters.airlines.includes(resultant.title) || this.travelFilters.airlines.length === 0) {
+                if (resultant.srcCity.toLowerCase().includes(this.search.toLowerCase())) {
                   return true;
                 }
 
-                if (post.srcCountry.toLowerCase().includes(this.search.toLowerCase())) {
+                if (resultant.srcCountry.toLowerCase().includes(this.search.toLowerCase())) {
                   return true;
                 }
 
-                if (post.destCity.toLowerCase().includes(this.search.toLowerCase())) {
+                if (resultant.destCity.toLowerCase().includes(this.search.toLowerCase())) {
                   return true;
                 }
 
-                if (post.destCountry.toLowerCase().includes(this.search.toLowerCase())) {
+                if (resultant.destCountry.toLowerCase().includes(this.search.toLowerCase())) {
                   return true;
                 }
               }
